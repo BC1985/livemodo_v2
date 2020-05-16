@@ -9,7 +9,14 @@ export class AddReviewComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  public band_name: string;
+  public show_date: number;
+  public venue: string;
+  public review: string;
 
+  onSubmit(){}
+  log(x) {
+    console.log(x);
+  }
+  ngOnInit(): void {}
 }
