@@ -1,38 +1,36 @@
 @import "../styles.scss";
 
 .wrapper {
-    padding: 5%;
-    background: url(../assets/images/rock-concert.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    // clip-path: polygon(60% 0, 100% 0%, 75% 100%, 26% 100%);
-    height: 100vh;
+  padding: 5%;
+  background: url(../assets/images/rock-concert.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  // clip-path: polygon(60% 0, 100% 0%, 75% 100%, 26% 100%);
+  height: 100vh;
 }
-.banner  {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
-        h1{
-            font-family: $primary-font;
-            color: whitesmoke ;
-            margin-block-end: 0;
-        }
-        h3{
-            font-family: $secondary-font;
-            color: whitesmoke;
-        }
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  h1 {
+    font-family: $primary-font;
+    color: whitesmoke;
+    margin-block-end: 0;
+  }
+  h3 {
+    font-family: $secondary-font;
+    color: whitesmoke;
+  }
 }
-
 
 .mat-sidenav {
-    background: rgb(68, 59, 107);
+  background: darken($color: #3f51b5, $amount: 5%);
 }
 #toggle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: white;
-    
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
 }
