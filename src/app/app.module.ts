@@ -15,19 +15,26 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
+import { BrowseReviewsComponent } from './browse-reviews/browse-reviews.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { PostService } from 'src/services/post.service';
 
 const modules = [
   FormsModule,
   ReactiveFormsModule,
   MatMenuModule,
   MatCardModule,
+  MatProgressSpinnerModule,
   BrowserModule,
+  HttpClientModule,
   MatSidenavModule,
   AppRoutingModule,
   BrowserAnimationsModule,
@@ -49,9 +56,11 @@ const modules = [
     AddReviewComponent,
     DatepickerComponent,
     TextareaComponent,
+    BrowseReviewsComponent,
+    SpinnerComponent,
   ],
-  providers: [],
+  providers: [PostService],
   imports: [[...modules]],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
