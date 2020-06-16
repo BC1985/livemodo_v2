@@ -11,6 +11,9 @@ export class BrowseReviewsComponent implements OnInit {
   constructor(private _postService: PostService) {}
 
   ngOnInit() {
-    this._postService.getPosts().subscribe((data) => (this.posts = data));
+    this._postService.getPosts().subscribe((data) => {
+      this.posts = data;
+      console.log(data);
+    });
   }
 }
