@@ -3,10 +3,19 @@
   <h1>Browse Reviews</h1>
   <div *ngFor="let post of posts" class="">
     <div class="item-container">
-      <h2 class="artist-name">{{ post.title }}</h2>
-      <p class="venue">Bob's Prophelactic Emporium</p>
-      <p class="date">2/1/2019</p>
-      <p class="content">{{ post.body }}</p>
+      <h3 class="artist-name">{{ post.Performer }}</h3>
+      <p class="show-info">
+        {{ post.Venue }}, {{ post.ShowDate | date: "longDate" }}
+      </p>
+
+      <div class="username">
+        <mat-icon>account_circle</mat-icon>
+        <p class="name">{{ post.Username }}</p>
+      </div>
+      <h3 class="tagline">{{ post.Tagline }}</h3>
+
+      <p class="content">{{ post.Content }}</p>
     </div>
+    <mat-divider></mat-divider>
   </div>
 </div>
