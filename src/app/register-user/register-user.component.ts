@@ -16,6 +16,7 @@ export class RegisterUserComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
+      username: ['', [Validators.required, Validators.minLength(2)]],
       email: [
         '',
         [
@@ -48,6 +49,27 @@ export class RegisterUserComponent implements OnInit {
     return this.registerForm.controls;
   }
 
+  disableButton() {
+    const {
+      email,
+      firstName,
+      lastName,
+      username,
+      password,
+      repeatPassword,
+    } = this.registerForm.value;
+    if (
+      email == '' ||
+      firstName == '' ||
+      lastName == '' ||
+      password == '' ||
+      repeatPassword == '' ||
+      username == ''
+    ) {
+      return true;
+    }
+  }
+
   onSubmit() {
     this.submitted = true;
 
@@ -55,8 +77,5 @@ export class RegisterUserComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-  }
-  log(x, y) {
-    console.log(x, y);
   }
 }
