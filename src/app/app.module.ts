@@ -26,6 +26,8 @@ import { BrowseReviewsComponent } from './browse-reviews/browse-reviews.componen
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { PostService } from 'src/services/post.service';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 const modules = [
   FormsModule,
@@ -58,6 +60,8 @@ const modules = [
     TextareaComponent,
     BrowseReviewsComponent,
     SpinnerComponent,
+    LoginFormComponent,
+    RegisterUserComponent,
   ],
   providers: [PostService],
   imports: [[...modules]],
