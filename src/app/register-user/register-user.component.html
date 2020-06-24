@@ -1,0 +1,85 @@
+<div class="register-wrapper">
+  <h1>
+    Sign up with Livemodo
+  </h1>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input
+        required
+        formControlName="firstName"
+        type="text"
+        matInput
+        [ngClass]="{ 'error-msg': submitted && input.firstName.errors }"
+      />
+    </mat-form-field>
+    <div *ngIf="submitted && input.firstName.errors" class="error-msg">
+      <div *ngIf="input.firstName.errors.required">First Name is required</div>
+    </div>
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input formControlName="lastName" required type="text" matInput />
+    </mat-form-field>
+    <div *ngIf="submitted && input.lastName.errors" class="error-msg">
+      <div *ngIf="input.lastName.errors.required">First Name is required</div>
+    </div>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        formControlName="email"
+        required
+        matInput
+        type="email"
+        id="email"
+        name="email"
+      />
+    </mat-form-field>
+    <div *ngIf="submitted && input.email.errors" class="error-msg">
+      <div *ngIf="input.email.errors.required">Email is required</div>
+      <div *ngIf="input.email.errors.email">
+        Email must be a valid email address
+      </div>
+    </div>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input
+        formControlName="password"
+        required
+        type="text"
+        matInput
+        id="username"
+        name="username"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input required type="text" matInput formControlName="password" />
+    </mat-form-field>
+    <div *ngIf="submitted && input.password.errors" class="error-msg">
+      <div *ngIf="input.password.errors.required">
+        Password is required
+      </div>
+      <div *ngIf="input.password.errors.pattern">
+        <p>
+          Password must contain uppercase characters, lowercase characters
+          numbers and special symbols,
+        </p>
+      </div>
+    </div>
+    <mat-form-field>
+      <mat-label>Repeat password</mat-label>
+      <input required formControlName="repeatPassword" type="text" matInput />
+    </mat-form-field>
+    <div *ngIf="submitted && input.repeatPassword.touched">
+      <div *ngIf="input.password.value !== input.repeatPassword.value">
+        <p>Passwords don't match</p>
+      </div>
+    </div>
+    <div>
+      <button mat-flat-button color="primary">
+        Login
+      </button>
+    </div>
+  </form>
+</div>
