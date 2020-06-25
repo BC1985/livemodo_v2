@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserData } from '../user-data';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from '../Models/User';
+import { UserService } from '../../services/userService';
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
@@ -10,7 +11,10 @@ export class RegisterUserComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private _userService: UserService
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -45,6 +49,26 @@ export class RegisterUserComponent implements OnInit {
       ],
     });
   }
+  registerNewUser() {
+    const {
+      email,
+      firstName,
+      lastName,
+      username,
+      password,
+    } = this.registerForm.controls;
+    var user = new User();
+    (user.email = email.value),
+      (user.firstName = firstName.value),
+      (user.lastName = lastName.value),
+      (user.password = password.value),
+      (user.username = username.value);
+    // import post user service
+    this._userService.postUser(user).subscribe((data) => {
+      user = data;
+    });
+    console.log('user submitted');
+  }
   get input() {
     return this.registerForm.controls;
   }
@@ -72,7 +96,7 @@ export class RegisterUserComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+    this.registerNewUser();
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
