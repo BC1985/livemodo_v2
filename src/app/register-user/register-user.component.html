@@ -25,14 +25,7 @@
     </div>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input
-        formControlName="email"
-        required
-        matInput
-        type="email"
-        id="email"
-        name="email"
-      />
+      <input formControlName="email" required matInput type="email" />
     </mat-form-field>
     <div *ngIf="submitted && input.email.errors" class="error-msg">
       <div *ngIf="input.email.errors.required">Email is required</div>
@@ -48,8 +41,6 @@
         minlength="2"
         type="text"
         matInput
-        id="username"
-        name="username"
       />
     </mat-form-field>
     <div
