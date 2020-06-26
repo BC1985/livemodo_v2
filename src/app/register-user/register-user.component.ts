@@ -58,11 +58,12 @@ export class RegisterUserComponent implements OnInit {
       password,
     } = this.registerForm.controls;
     var user = new User();
-    (user.email = email.value),
-      (user.firstName = firstName.value),
-      (user.lastName = lastName.value),
-      (user.password = password.value),
-      (user.username = username.value);
+      user.Email = email.value;
+      user.FirstName = firstName.value;
+      user.LastName = lastName.value;
+      user.Password = password.value;
+      user.Username = username.value;
+      console.log(user)
     // import post user service
     this._userService.postUser(user).subscribe((data) => {
       user = data;
