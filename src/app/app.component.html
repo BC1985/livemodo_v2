@@ -1,28 +1,33 @@
 <mat-sidenav-container>
-  <mat-sidenav [(opened)]="opened">
+  <mat-sidenav #sidenav [(opened)]="opened">
     <ul>
       <mat-list>
           <mat-list-item>
+            <a routerLink="/login"
+           (click)="onCloseSideNav()"
+            >
+
               <li>
                   <mat-icon>how_to_reg</mat-icon>
                   Log in                    
               </li>
+            </a>
           </mat-list-item>
-      
-      <mat-list-item>
-          <li>
-              <mat-icon>subject</mat-icon>
-              Browse reviews         
-          </li>
-      </mat-list-item>
-      <mat-list-item> 
+      <a routerLink="/browse"
+        (click)="onCloseSideNav()">
+        <mat-list-item>
+            <li>
+                <mat-icon>subject</mat-icon>
+                Browse reviews       
+            </li>
+        </mat-list-item>
+      </a>
 
-      </mat-list-item>
      </mat-list>
   </ul>
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-button (click)="opened=!opened" id="toggle"><mat-icon>menu</mat-icon></button>
+    <button mat-button (click)="sidenav.toggle()" id="toggle"><mat-icon>menu</mat-icon></button>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
