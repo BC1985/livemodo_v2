@@ -88,7 +88,7 @@ export class RegisterUserComponent implements OnInit {
       firstName == '' ||
       lastName == '' ||
       password == '' ||
-      repeatPassword == '' ||
+      repeatPassword != password ||
       username == ''
     ) {
       return true;

@@ -72,8 +72,8 @@
       <mat-label>Repeat password</mat-label>
       <input required formControlName="repeatPassword" type="text" matInput />
     </mat-form-field>
-    <div *ngIf="submitted && input.repeatPassword.touched">
-      <div *ngIf="input.password.value !== input.repeatPassword.value">
+    <div *ngIf="input.repeatPassword.touched">
+      <div *ngIf="input.password.value !== input.repeatPassword.value" class="error-msg">
         <p>Passwords don't match</p>
       </div>
     </div>
