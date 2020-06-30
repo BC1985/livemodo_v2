@@ -8,11 +8,14 @@ import { PostService } from '../../services/post.service';
 })
 export class BrowseReviewsComponent implements OnInit {
   public posts = [];
+  isLoading = true;
+
   constructor(private _postService: PostService) {}
 
   ngOnInit() {
     this._postService.getPosts().subscribe((data) => {
       this.posts = data;
+      this.isLoading = false;
       console.log(data);
     });
   }

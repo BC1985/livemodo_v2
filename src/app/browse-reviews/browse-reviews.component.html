@@ -1,21 +1,24 @@
 <div class="browse-container">
-  <!-- <mat-spinner></mat-spinner> -->
-  <h1>Browse Reviews</h1>
-  <div *ngFor="let post of posts" class="">
-    <div class="item-container">
-      <h3 class="artist-name">{{ post.Performer }}</h3>
-      <p class="show-info">
-        {{ post.Venue }}, {{ post.ShowDate | date: "longDate" }}
-      </p>
-
-      <div class="username">
-        <mat-icon>account_circle</mat-icon>
-        <p class="name">{{ post.Username }}</p>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div *ngIf="!isLoading">
+    <h1>Browse Reviews</h1>
+    <div *ngFor="let post of posts" class="">
+      <div class="item-container">
+        <h3 class="artist-name">{{ post.Performer }}</h3>
+        <p class="show-info">
+          {{ post.Venue }}, {{ post.ShowDate | date: "longDate" }}
+        </p>
+  
+        <div class="username">
+          <mat-icon>account_circle</mat-icon>
+          <p class="name">{{ post.Username }}</p>
+        </div>
+        <h3 class="tagline">{{ post.Tagline }}</h3>
+  
+        <p class="content">{{ post.Content }}</p>
       </div>
-      <h3 class="tagline">{{ post.Tagline }}</h3>
-
-      <p class="content">{{ post.Content }}</p>
+      <mat-divider></mat-divider>
     </div>
-    <mat-divider></mat-divider>
+    <app-search-bar></app-search-bar>
   </div>
 </div>
