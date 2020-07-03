@@ -3,21 +3,10 @@ import { Review } from '../Models/Review';
 import * as _moment from 'moment';
 import { ReviewService } from '../../services/review.service';
 import { FormGroup, FormBuilder, Validators,} from '@angular/forms';
-
+import { dateFormat } from "../../utlis/datepicker_utils";
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'LL',
-  },
-  display: {
-    dateInput: 'L',
-    monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
 @Component({
   selector: 'app-add-review',
   templateUrl: './add-review.component.html',
@@ -27,7 +16,7 @@ export const MY_FORMATS = {
       useClass: MomentDateAdapter,
       deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
     },
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    { provide: MAT_DATE_FORMATS, useValue: dateFormat },
   ],
 })
 export class AddReviewComponent implements OnInit {
