@@ -1,10 +1,9 @@
-export interface Review {
-  id: Number;
-  performer: string;
-  content: string;
-  showDate: string;
-  tagline: string;
-  username: string;
-  rating: Int16Array;
-  venue: string;
+export class Review {
+  Performer: string;
+  Content: string;
+  ShowDate: string;
+  Tagline: string;
+  Username: string;
+  Rating: Int16Array;
+  Venue: string;
 }
