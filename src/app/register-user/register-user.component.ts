@@ -74,26 +74,6 @@ export class RegisterUserComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  disableButton() {
-    const {
-      email,
-      firstName,
-      lastName,
-      username,
-      password,
-      repeatPassword,
-    } = this.registerForm.value;
-    if (
-      email == '' ||
-      firstName == '' ||
-      lastName == '' ||
-      password == '' ||
-      repeatPassword != password ||
-      username == ''
-    ) {
-      return true;
-    }
-  }
 
   onSubmit() {
     this.submitted = true;

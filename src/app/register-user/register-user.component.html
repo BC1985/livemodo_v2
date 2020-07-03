@@ -78,7 +78,7 @@
       </div>
     </div>
     <div>
-      <button mat-flat-button color="primary" [disabled]="disableButton()">
+      <button mat-flat-button color="primary" [disabled]="!registerForm.valid">
         Sign up
       </button>
     </div>
