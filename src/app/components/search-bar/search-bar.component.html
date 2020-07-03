@@ -1,8 +1,14 @@
-<input type="text" name="sarchStr" (keyup)="getArtist()" [(ngModel)]="searchStr"><button (click)="getArtist()">Click me</button>
+<input
+  type="text"
+  name="sarchStr"
+  (keyup)="getArtist()"
+  [(ngModel)]="searchStr"
+/>
+<button (click)="getArtist()">Click me</button>
 <div *ngIf="searchResults">
-    <div *ngFor="let res of searchResults">
-            <h3>
-                {{res.name}}
-            </h3>            
-        </div>
+  <div *ngFor="let res of searchResults">
+    <h3>
+      {{ res.name }}
+    </h3>
+  </div>
 </div>
