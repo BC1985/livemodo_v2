@@ -28,6 +28,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { PostService } from 'src/services/post.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { MomentDateModule } from '@angular/material-moment-adapter';
 
 const modules = [
   FormsModule,
@@ -36,6 +37,7 @@ const modules = [
   MatCardModule,
   MatProgressSpinnerModule,
   BrowserModule,
+  MomentDateModule,
   HttpClientModule,
   MatSidenavModule,
   AppRoutingModule,
