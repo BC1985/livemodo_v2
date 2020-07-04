@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, Validators,} from '@angular/forms';
 import { dateFormat } from "../../utlis/datepicker_utils";
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
-
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-add-review',
   templateUrl: './add-review.component.html',
@@ -25,7 +25,8 @@ export class AddReviewComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _reviewService: ReviewService
+    private _reviewService: ReviewService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -72,5 +73,6 @@ export class AddReviewComponent implements OnInit {
   onSubmit() {
     this.postReview()
     this.submitted = true;
+    setTimeout(()=> this._router.navigate(['/home']),5000)
   }
 }
