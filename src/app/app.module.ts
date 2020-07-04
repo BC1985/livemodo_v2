@@ -29,6 +29,7 @@ import { PostService } from 'src/services/post.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { MomentDateModule } from '@angular/material-moment-adapter';
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const modules = [
   FormsModule,
@@ -64,6 +65,7 @@ const modules = [
     SpinnerComponent,
     LoginFormComponent,
     RegisterUserComponent,
+    PageNotFoundComponent
   ],
   providers: [PostService],
   imports: [[...modules]],
