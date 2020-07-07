@@ -32,6 +32,7 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { ReviewService } from 'src/services/review.service';
 import { UserService } from 'src/services/userService';
+import { AuthService } from 'src/services/auth.service';
 
 const modules = [
   FormsModule,
@@ -69,7 +70,7 @@ const modules = [
     RegisterUserComponent,
     PageNotFoundComponent
   ],
-  providers: [PostService,ReviewService,UserService],
+  providers: [PostService,ReviewService,UserService, AuthService],
   imports: [[...modules]],
   bootstrap: [AppComponent]
 })
