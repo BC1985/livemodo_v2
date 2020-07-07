@@ -2,13 +2,13 @@
   <h1>
     Login to Livemodo
   </h1>
-  <form class="login-form">
+  <form class="login-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <mat-form-field>
       <mat-label>Username</mat-label>
       <input
         required
         type="text"
-        ngModel
+        [(ngModel)]="loginCredentials.Username"
         matInput
         id="username"
         name="username"
@@ -26,7 +26,7 @@
         required
         type="password"
         matInput
-        ngModel
+        [(ngModel)]="loginCredentials.Password"
         name="password"
         #password="ngModel"
         id="password"
@@ -37,8 +37,11 @@
         <p class="error-msg">password is required</p>
       </div>
     </div>
+    <div *ngIf="error" class="error-msg">
+      <p>Invalid credentials</p>
+    </div>
+    <button mat-flat-button color="primary" [disabled]="!password.valid">
+      Login
+    </button>
   </form>
-  <button mat-flat-button color="primary" [disabled]="!password.valid">
-    Login
-  </button>
 </div>
