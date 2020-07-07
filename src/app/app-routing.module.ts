@@ -6,6 +6,7 @@ import { BrowseReviewsComponent } from './browse-reviews/browse-reviews.componen
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -20,9 +21,10 @@ const routes: Routes = [
   {
     path: 'post',
     component: AddReviewComponent,
+    canActivate:[AuthGuard]
   },
   {
-    path: 'browse',
+    path: 'reviews',
     component: BrowseReviewsComponent,
   },
   {
